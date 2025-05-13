@@ -10,13 +10,13 @@ export function GuestCompanyHeader() {
                             <img src="/Logo.svg" alt="" className=""/>
                         </a>
 
-                        <a href="/" className="px-6 py-2 text-black bg-white underline underline-offset-3 font-kosugi">
+                        <a href="/" className="px-6 py-2 text-black bg-white underline underline-offset-3 font-kosugi rounded-xl">
                             For the employees
                         </a>
                     </div>
 
                     <div className="flex flex-row items-center gap-5">
-                        <a href="/company-login" className="px-6 py-2 text-white bg-blue font-kosugi hover:bg-blue/90">
+                        <a href="/company-login" className="px-6 py-2 text-white bg-blue font-kosugi rounded-xl hover:bg-blue/90">
                             Sign in / Sign up
                         </a>
                         <img src="/Arrow.svg" alt=""/>

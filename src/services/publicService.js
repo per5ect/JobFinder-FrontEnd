@@ -11,10 +11,20 @@ export const getAllTechnologies = async () => {
     return response.data;
 }
 
-export const getAllVacancies = async () => {
-    const response = await apiPublic.get("/all-vacancies");
+export const getAllVacancies = async (filters = {}, page = 0, size = 10) => {
+    const cleanedFilters = Object.fromEntries(
+        Object.entries(filters).filter(([_, value]) => value !== '')
+    );
+
+    const params = new URLSearchParams({
+        ...cleanedFilters,
+        page,
+        size
+    });
+
+    const response = await apiPublic.get(`/all-vacancies?${params.toString()}`);
     return response.data;
-}
+};
 
 export const getVacancy = async (id) => {
     const response = await apiPublic.get(`/all-vacancies/${id}`);

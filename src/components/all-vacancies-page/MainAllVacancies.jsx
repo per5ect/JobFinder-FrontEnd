@@ -4,135 +4,96 @@ import {useEffect, useState} from "react";
 import {getAllVacancies} from "../../services/publicService.js";
 import {Loader} from "../Global/Loader.jsx";
 import {getUserRole} from "../../utils/jwtDecode.js";
-import {deleteVacancy} from "../../services/adminService.js";
+import {VacancyElement} from "../Global/VacancyElement.jsx";
 
-export function MainAllVacancies(){
+export function MainAllVacancies() {
     const role = getUserRole();
-    const handleDeleteVacancy = async (vacancyId) => {
-        try{
-            await deleteVacancy(vacancyId);
-        } catch (error) {
-            console.log(error);
-        } finally {
-            alert("Vacancy deleted successfully");
-            window.location.reload();
-        }
-    }
 
-    const [vacancies, setVacancies] = useState();
-    const [visibleCount, setVisibleCount] = useState(10);
+    const [vacancies, setVacancies] = useState([]);
+    const [page, setPage] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
+    const [hasMore, setHasMore] = useState(true);
+
     const [filters, setFilters] = useState({
-        jobName: '',
+        title: '',
         location: '',
-        experience: '',
-        employmentType: '',
+        workExperience: '',
+        typeOfEmployment: '',
         workMode: '',
-        level: ''
+        knowledgeLevel: ''
     });
-    const [filteredVacancies, setFilteredVacancies] = useState([]);
 
     const handleFilterChange = (e) => {
         const { name, value } = e.target;
-        setFilters((prev) => ({
-            ...prev,
-            [name]: value
-        }));
+        setFilters((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const fetchVacancies = async (reset = false) => {
+        setIsLoading(true);
+        try {
+            const data = await getAllVacancies(filters, reset ? 0 : page, 10);
+
+            if (reset) {
+                setVacancies(data);
+                setPage(1);
+            } else {
+                setVacancies((prev) => [...prev, ...data]);
+                setPage((prev) => prev + 1);
+            }
+            console.log(data);
+
+            setHasMore(data.length === 10);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const handleSearch = () => {
-        if (!vacancies) return;
-
-        const filtered = vacancies.filter((v) => {
-            const titleMatch = v.title.toLowerCase().includes(filters.jobName.toLowerCase());
-            const locationMatch = v.location.toLowerCase().includes(filters.location.toLowerCase());
-
-            const experienceMatch = filters.experience === '' || v.workExperience === parseInt(filters.experience);
-            const employmentTypeMatch = filters.employmentType === '' || v.typeOfEmployment === filters.employmentType;
-            const workModeMatch = filters.workMode === '' || v.workMode === filters.workMode;
-            const levelMatch = filters.level === '' || v.knowledgeLevel === filters.level;
-
-            return (
-                titleMatch &&
-                locationMatch &&
-                experienceMatch &&
-                employmentTypeMatch &&
-                workModeMatch &&
-                levelMatch
-            );
-        });
-
-
-        setFilteredVacancies(filtered);
+        fetchVacancies(true); // reset
     };
 
     useEffect(() => {
-        const fetchVacancies = async () => {
-            setIsLoading(true)
-            try{
-                const vacanciesData = await getAllVacancies();
-                console.log("All vacancies:", vacanciesData);
-                setVacancies(vacanciesData);
-            } catch (error) {
-                console.log(error);
-            } finally {
-                setIsLoading(false)
-            }
-        }
-        fetchVacancies();
-    }, [])
+        fetchVacancies(true);
+    }, []);
+
     return (
         <main className="mt-10 mb-10">
             <Layout>
-                <div className="">
-                    <section className="flex flex-col items-start border-b pb-8">
-                        <h1 className="text-black font-konkhmer text-5xl mb-2">Job offers</h1>
-                        <VacancyFilterForm
-                            filters={filters}
-                            onFilterChange={handleFilterChange}
-                            onSearch={handleSearch}
-                        />
-                    </section>
-                    {isLoading ? <Loader/> :
-                        <div className="flex flex-col justify-center">
-                            {(filteredVacancies.length ? filteredVacancies : vacancies).length === 0 ? (
-                                <p className="text-center text-3xl text-black pt-10 font-konkhmer">
-                                    No vacancies found 😔
-                                </p>
-                            ) : (
-                                <div className="flex flex-col mt-14 gap-15">
-                                    {(filteredVacancies.length ? filteredVacancies : vacancies)
-                                        .slice(0, visibleCount)
-                                        .map((vacancy, index) => (
-                                            <div key={index} className="border p-6 rounded-xl shadow-md bg-white">
-                                                <a href={`all-vacancies/${vacancy.id}`} className="text-xl font-bold">{vacancy.title}</a>
-                                                <p className="text-gray-700">{vacancy.shortDescription}</p>
-                                                <p className="text-sm text-gray-500">Location: {vacancy.location}</p>
-                                                <p className="text-sm text-gray-500">Salary: ${vacancy.salary}</p>
-                                                <p className="text-sm text-gray-500">Company: {vacancy.companyName}</p>
-                                                {role === "ROLE_ADMIN" && (
-                                                    <button
-                                                        className="bg-red-500 mt-3 px-4 py-3 rounded-2xl text-white"
-                                                        onClick={() => handleDeleteVacancy(vacancy.id)}
-                                                    >
-                                                        Delete vacancy
-                                                    </button>
-                                                )}
-                                            </div>
-                                        ))}
-                                </div>
-                            )}
+                <section className="flex flex-col items-start border-b pb-8 gap-7">
+                    <h1 className="text-5xl bg-black text-white font-konkhmer py-2 px-5">Job offers</h1>
+                    <VacancyFilterForm
+                        filters={filters}
+                        onFilterChange={handleFilterChange}
+                        onSearch={handleSearch}
+                    />
+                </section>
 
+                {isLoading && vacancies.length === 0 ? (
+                    <Loader />
+                ) : (
+                    <div className="flex flex-col items-center w-full">
+                        {vacancies.length === 0 ? (
+                            <p className="text-center text-3xl text-black pt-10 font-konkhmer">
+                                No vacancies found 😔
+                            </p>
+                        ) : (
+                            <div className="flex flex-col w-full mt-14 gap-15">
+                                {vacancies.map((vacancy, index) => (
+                                    <VacancyElement key={index} vacancyData={vacancy} userRole={role} />
+                                ))}
+                            </div>
+                        )}
 
-                            {vacancies.length < 10 ? null :
-                                <button onClick={() => setVisibleCount(prev => prev + 10)}>
-                                    Get more
-                                </button>
-                            }
-                        </div>
-                    }
-                </div>
+                        {hasMore && (
+                            <button onClick={() => fetchVacancies()} className="mt-8 px-6 py-2 bg-green text-black button-kosugi rounded-xl cursor-pointer">
+                                Load more
+                            </button>
+                        )}
+                    </div>
+                )}
             </Layout>
         </main>
-    )
+    );
 }

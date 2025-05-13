@@ -1,8 +1,24 @@
 import { useState } from "react";
 import {logout} from "../../../services/authenticationService.js";
+import {getUserRole} from "../../../utils/jwtDecode.js";
+import {UserDropdownMenu} from "./UserDropdownMenu.jsx";
+import {CompanyDropdownMenu} from "./CompanyDropdownMenu.jsx";
+import {AdminDropdownMenu} from "./AdminDropdownMenu.jsx";
 
 export function DropdownElement() {
     const [isOpen, setIsOpen] = useState(false);
+
+    const userRole = getUserRole();
+    const dropdownByRole = (role) => {
+        switch (role) {
+            case "ROLE_USER":
+                return <UserDropdownMenu/>
+            case "ROLE_COMPANY":
+                return <CompanyDropdownMenu/>
+            case "ROLE_ADMIN":
+                return <AdminDropdownMenu/>
+        }
+    }
 
     return (
         <div className="relative inline-block">
@@ -12,32 +28,17 @@ export function DropdownElement() {
             </button>
 
             {isOpen && (
-                <div className="absolute left-0 z-10 bg-green    w-44">
-                    <ul className="py-2 text-sm text-black font-kosugi">
+                <div className="absolute left-0 z-10 bg-green w-44">
+                    <ul className="text-sm text-black font-kosugi">
+                        {dropdownByRole(userRole)}
                         <li>
-                            <a href="#" className="block px-4 py-2">
-                                Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                Settings
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                Earnings
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/all-vacancies" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                View all vacancies
-                            </a>
-                        </li>
-                        <li>
-                            <button onClick={logout}  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                Sign out
-                            </button>
+                            <div className="flex flex-row items-center w-full bg-red text-white px-4 py-3 gap-2
+                                    transition-colors ease-in-out hover:bg-black ">
+                                <a href="#" onClick={logout} className="">
+                                    Sign out
+                                </a>
+                                <img src="/LogOut.svg" className="" alt=""/>
+                            </div>
                         </li>
                     </ul>
                 </div>

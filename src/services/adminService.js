@@ -29,3 +29,13 @@ export const deleteVacancy = async (vacancyId) => {
     const response = await apiAdmin.delete(`/delete-vacancy/${vacancyId}`);
     return response.data;
 }
+
+export const getAllCompanies = async () => {
+    const response = await apiAdmin.get("/all-companies");
+    return response.data;
+}
+
+export const getAllUsers = async () => {
+    const response = await apiAdmin.get("/all-users");
+    return response.data;
+}

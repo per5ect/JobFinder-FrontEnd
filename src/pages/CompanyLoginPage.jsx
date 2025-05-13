@@ -27,7 +27,7 @@ export function CompanyLoginPage(){
         try{
             console.log(formData);
             await loginCompany(formData)
-            navigate("/create-work")
+            navigate("/for-companies")
         } catch (error) {
             setError("Invalid email or password");
             console.log(error);

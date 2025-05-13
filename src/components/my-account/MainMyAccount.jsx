@@ -21,11 +21,9 @@ export function MainMyAccount() {
     return (
         <main>
             <Layout>
-                <div className="flex items-center w-full">
-                    <div className="flex flex-col items-center mx-auto py-12 px-6.5 mt-7.5 mb-7.5 border border-[#222A24]/40">
-                        {getComponentByRole(userRole)}
-                    </div>
-                    <button onClick={logout}>Log out</button>
+                <div className="flex flex-col items-center w-full">
+                    {getComponentByRole(userRole)}
+                    <button className="bg-red text-white button-konkhmer py-4.5 w-[540px] mb-[57px] rounded-2xl transition-colors ease-in-out hover:bg-red/90" onClick={logout}>SIGN OUT</button>
                 </div>
             </Layout>
         </main>

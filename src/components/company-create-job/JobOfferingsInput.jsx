@@ -25,32 +25,34 @@ export function JobOfferingsInput({ onChange }) {
     };
 
     return (
-        <div className="flex flex-col gap-4">
-            <label className="font-bold text-[18px]">Job Offerings</label>
+        <div className="flex flex-col  w-full gap-4 ">
+            <div className="flex flex-col gap-4">
+                <label className="font-bold text-[20px]">Job Offerings:</label>
 
-            {offerInputs.map((value, index) => (
-                <div key={index} className="flex gap-3 items-center">
-                    <input
-                        type="text"
-                        value={value}
-                        onChange={(e) => handleChange(e.target.value, index)}
-                        placeholder="Enter job offering"
-                        className="w-full border rounded-md px-4 py-2"
-                    />
-                    <button
-                        type="button"
-                        onClick={() => handleRemove(index)}
-                        className="text-red-600 hover:underline"
-                    >
-                        Remove
-                    </button>
-                </div>
-            ))}
+                {offerInputs.map((value, index) => (
+                    <div key={index} className="flex gap-3 items-center">
+                        <input
+                            type="text"
+                            value={value}
+                            onChange={(e) => handleChange(e.target.value, index)}
+                            placeholder="Enter job offering"
+                            className="py-4 p-6.5 border border-[#222A24] rounded-[15px] input-kosugi w-full"
+                        />
+                        <button
+                            type="button"
+                            onClick={() => handleRemove(index)}
+                            className="bg-red px-3 py-2 rounded-xl button-konkhmer text-white cursor-pointer"
+                        >
+                            X
+                        </button>
+                    </div>
+                ))}
+            </div>
 
             <button
                 type="button"
                 onClick={handleAdd}
-                className="bg-green text-white px-4 py-2 rounded-md mt-2 w-fit"
+                className="bg-green text-black button-konkhmer px-7 py-3 rounded-xl mt-2 w-fit mx-auto"
             >
                 Add Offering
             </button>

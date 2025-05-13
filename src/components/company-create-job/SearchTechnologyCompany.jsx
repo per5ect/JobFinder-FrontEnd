@@ -44,61 +44,53 @@ export function SearchTechnologyCompany({ onChange }) {
     };
 
     return (
-        <div className="space-y-4">
-            <label htmlFor="search-technology" className="font-konkhmer text-[20px] text-black">
-                Select Technology Stack
-            </label>
+        <div className="space-y-8 border-b border-black/30 pb-9">
+            <div className="flex flex-col gap-2.5">
+                <label htmlFor="search-technology" className="font-konkhmer text-[20px] text-black">
+                    Select Technology Stack
+                </label>
 
-            <input
-                type="text"
-                id="search-technology"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Enter technology name"
-                className="w-full py-4 px-6 border border-[#222A24] rounded-[15px] input-kosugi focus:border-blue transition duration-300"
-            />
+                <input
+                    type="text"
+                    id="search-technology"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Enter technology name"
+                    className="w-full py-4 px-6 border border-[#222A24] rounded-[15px] input-kosugi focus:border-blue transition duration-300"
+                />
+            </div>
 
             {/* Список найденных технологий */}
-            {search && filteredTechnologies.length > 0 && (
-                <div className="flex flex-wrap gap-2.5">
-                    {filteredTechnologies.map(tech => (
-                        <span
-                            key={tech.id}
-                            className="cursor-pointer bg-blue font-konkhmer text-white border rounded-2xl px-7.5 py-2"
-                            onClick={() => addTechnology(tech)}
-                        >
-                            {tech.technologyName}
-                        </span>
-                    ))}
-                </div>
-            )}
+            {search && filteredTechnologies.length > 0 ? (
+                    <div className="flex flex-wrap gap-2.5">
+                        {filteredTechnologies.map(tech => (
+                            <span
+                                key={tech.id}
+                                className="cursor-pointer bg-blue font-konkhmer text-white border rounded-2xl px-7.5 py-2"
+                                onClick={() => addTechnology(tech)}>
+                {tech.technologyName}
+            </span>
+                        ))}
+                    </div>
+                ) :
+                <span className="bg-black text-white font-konkhmer rounded-[20px] px-2 py-2">
+                    Choose min 1 technology
+                </span>
+            }
             <div className="mt-10 pt-2">
-                <p className="font-konkhmer text-[20px] text-black">Selected:</p>
+                <p className="font-konkhmer text-[20px] text-black">Selected technologies:</p>
                 <div className="flex flex-wrap gap-2 mt-4">
                     {selectedTechnologies.map(tech => (
-                        <div
-                            key={tech.id}
-                            className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full flex items-center gap-2"
-                        >
+                        <div key={tech.id} className="cursor-pointer bg-blue font-konkhmer text-white border rounded-2xl px-7.5 py-2 flex items-center gap-2">
                             <span>{tech.technologyName}</span>
                             <button
                                 onClick={() => removeTechnology(tech.id)}
-                                className="text-blue-500 hover:text-red-500"
-                            >
+                                className="text-white">
                                 &times;
                             </button>
                         </div>
                     ))}
                 </div>
-            </div>
-
-
-            {/* Выбранные технологии в виде тегов */}
-
-
-            {/* DEBUG: Список ID выбранных */}
-            <div className="text-sm text-gray-500 mt-3">
-                Selected IDs: [{selectedTechnologies.map(t => t.id).join(", ")}]
             </div>
         </div>
     );

@@ -25,7 +25,7 @@ export function JobRequirementsInput({ onChange }) {
 
     return (
         <div className="flex flex-col gap-4">
-            <label className="font-bold text-[18px]">Job Requirements</label>
+            <label className="font-bold text-[20px]">Job Requirements</label>
 
             {requirementsInputs.map((value, index) => (
                 <div key={index} className="flex gap-3 items-center">
@@ -34,14 +34,14 @@ export function JobRequirementsInput({ onChange }) {
                         value={value}
                         onChange={(e) => handleChange(e.target.value, index)}
                         placeholder="Enter job offering"
-                        className="w-full border rounded-md px-4 py-2"
+                        className="py-4 p-6.5 border border-[#222A24] rounded-[15px] input-kosugi w-full"
                     />
                     <button
                         type="button"
                         onClick={() => handleRemove(index)}
-                        className="text-red-600 hover:underline"
+                        className="bg-red px-3 py-2 rounded-xl button-konkhmer text-white cursor-pointer"
                     >
-                        Remove
+                        X
                     </button>
                 </div>
             ))}
@@ -49,9 +49,9 @@ export function JobRequirementsInput({ onChange }) {
             <button
                 type="button"
                 onClick={handleAdd}
-                className="bg-green text-white px-4 py-2 rounded-md mt-2 w-fit"
+                className="bg-green text-black button-konkhmer px-7 py-3 rounded-xl mt-2 w-fit mx-auto"
             >
-                Add Requirement
+                Add Requirements
             </button>
         </div>
     );

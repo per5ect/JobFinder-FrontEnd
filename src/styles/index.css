@@ -14,6 +14,7 @@
     --color-green: #A2E3C4;
     --color-white: #F9FFFC;
     --color-blue: #2EA4F1;
+    --color-red: #EF7777;
 }
 
 /**
@@ -195,6 +196,14 @@ svg * {
 
 .button-kosugi{
     font-family: 'KosugiMaru', "sans-serif";
+}
+
+.button-konkhmer{
+    font-family: 'KonkhmerSleokchher', "sans-serif";
+}
+
+.button-font-size{
+    font-size: 32px;
 }
 
 

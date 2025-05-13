@@ -1,9 +1,9 @@
 import {Layout} from "../../Layout.jsx";
-import {AdminElement} from "./AdminElement.jsx";
+import {HeaderAdminElement} from "./HeaderAdminElement.jsx";
 import {getUserRole} from "../../../utils/jwtDecode.js";
-import {UserElement} from "./UserElement.jsx";
-import {GuestElement} from "./GuestElement.jsx";
-import {CompanyElement} from "./CompanyElement.jsx";
+import {HeaderUserElement} from "./HeaderUserElement.jsx";
+import {HeaderGuestElement} from "./HeaderGuestElement.jsx";
+import {HeaderCompanyElement} from "./HeaderCompanyElement.jsx";
 
 export function Header() {
 
@@ -12,21 +12,21 @@ export function Header() {
         switch (role){
             case "ROLE_ADMIN":
                 console.log(getUserRole())
-                return <AdminElement />
+                return <HeaderAdminElement />
             case "ROLE_USER":
                 console.log(getUserRole())
-                return <UserElement />
+                return <HeaderUserElement />
             case "ROLE_COMPANY":
                 console.log(getUserRole())
-                return <CompanyElement />
+                return <HeaderCompanyElement />
             default:
                 console.log(getUserRole())
-                return <GuestElement/>;
+                return <HeaderGuestElement/>;
         }
     }
 
     return (
-        <header className="h-25 bg-black flex flex-row items-center ">
+        <header className="w-full h-25 bg-black flex flex-row items-center ">
             <Layout>
                 {getComponentByRole(userRole)}
             </Layout>

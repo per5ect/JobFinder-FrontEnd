@@ -21,10 +21,12 @@ export function UserLoginPage() {
 
         try{
             await loginUser(formData)
-            navigate("/analyze")
+
         } catch (error) {
             setError("Invalid email or password");
             console.log(error);
+        } finally {
+            formData.email === "admin@admin" ? navigate("/main-admin-page") : navigate("/")
         }
     }
 

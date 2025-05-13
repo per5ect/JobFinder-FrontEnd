@@ -41,10 +41,10 @@ export function MainCreateJob() {
                 <div className="mt-13">
                     <h1 className="text-black text-[48px] font-konkhmer">Create New Job</h1>
                     <div className="flex flex-col container mx-auto max-w-[553px] mb-15 mt-13">
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-8">
 
                             {/* Title */}
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-2 border-b border-black/30 pb-9">
                                 <label htmlFor="jobName" className="font-konkhmer text-[20px] text-black">
                                     Job name
                                 </label>
@@ -57,7 +57,7 @@ export function MainCreateJob() {
                             </div>
 
                             {/* Description */}
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-2 border-b border-black/30 pb-9">
                                 <label htmlFor="jobdescription" className="font-konkhmer text-[20px] text-black">
                                     Job description (max 300 characters)
                                 </label>
@@ -74,7 +74,7 @@ export function MainCreateJob() {
                             </div>
 
                             {/* Salary */}
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-2 border-b border-black/30 pb-9">
                                 <label htmlFor="jobSalary" className="font-konkhmer text-[20px] text-black">
                                     Salary (in $)
                                 </label>
@@ -87,7 +87,7 @@ export function MainCreateJob() {
                             </div>
 
                             {/* Location */}
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-2 border-b border-black/30 pb-9">
                                 <label htmlFor="jobCity" className="font-konkhmer text-[20px] text-black">
                                     Job Location (City)
                                 </label>
@@ -100,9 +100,11 @@ export function MainCreateJob() {
                             </div>
 
                             {/* Dropdowns */}
-                            <div className="flex flex-row gap-6">
+                            <div className="flex flex-row gap-6 ">
                                 <div className="flex flex-col gap-2 w-full">
-                                    <label htmlFor="knowlvl">Choose knowledge level</label>
+                                    <label htmlFor="knowlvl" className="font-konkhmer text-black text-[18px]">
+                                        Choose knowledge level
+                                    </label>
                                     <select id="knowlvl" name="knowlvl" required
                                             value={formData.knowledgeLevel}
                                             onChange={(e) => setFormData(prev => ({ ...prev, knowledgeLevel: e.target.value }))}>
@@ -114,7 +116,9 @@ export function MainCreateJob() {
                                     </select>
                                 </div>
                                 <div className="flex flex-col gap-2 w-full">
-                                    <label htmlFor="workMode">Choose work mode</label>
+                                    <label htmlFor="workMode" className="font-konkhmer text-black text-[18px]">
+                                        Choose work mode
+                                    </label>
                                     <select id="workMode" name="workMode" required
                                             value={formData.workMode}
                                             onChange={(e) => setFormData(prev => ({ ...prev, workMode: e.target.value }))}>
@@ -126,9 +130,9 @@ export function MainCreateJob() {
                                 </div>
                             </div>
 
-                            <div className="flex flex-row gap-6">
+                            <div className="flex flex-row gap-6 border-b border-black/30 pb-9">
                                 <div className="flex flex-col gap-2 w-full">
-                                    <label htmlFor="tofEmploy">Choose type of employment</label>
+                                    <label htmlFor="tofEmploy" className="font-konkhmer text-black text-[18px]">Choose type of employment</label>
                                     <select id="tofEmploy" name="tofEmploy" required
                                             value={formData.typeOfEmployment}
                                             onChange={(e) => setFormData(prev => ({ ...prev, typeOfEmployment: e.target.value }))}>
@@ -139,7 +143,9 @@ export function MainCreateJob() {
                                     </select>
                                 </div>
                                 <div className="flex flex-col gap-2 w-full">
-                                    <label htmlFor="workExp">Choose work experience</label>
+                                    <label htmlFor="workExp" className="font-konkhmer text-black text-[18px]">
+                                        Choose work experience
+                                    </label>
                                     <select id="workExp" name="workExp" required
                                             value={formData.workExperience}
                                             onChange={(e) => setFormData(prev => ({ ...prev, workExperience: e.target.value }))}>
@@ -158,7 +164,7 @@ export function MainCreateJob() {
                             <JobOfferingsInput onChange={(list) => setFormData(prev => ({ ...prev, offerings: list }))} />
                             <JobRequirementsInput onChange={(list) => setFormData(prev => ({ ...prev, requirements: list }))} />
 
-                            <button type="submit" className="mt-20 w-full bg-blue text-white button-kosugi rounded-[10px] py-3.5">
+                            <button type="submit" className="mt-10 w-full bg-blue text-white button-kosugi rounded-[10px] py-3.5 cursor-pointer transition-colors ease-in-out hover:bg-blue/90">
                                 Create job
                             </button>
                         </form>

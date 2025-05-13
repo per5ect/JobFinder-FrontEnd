@@ -3,7 +3,7 @@ import {Footer} from "../components/Global/Footer.jsx";
 import {Layout} from "../components/Layout.jsx";
 import {useLocation, useNavigate} from "react-router";
 import {useState} from "react";
-import {resendVerificationCode, verifyCompany} from "../services/authenticationService.js";
+import {resendVerificationCode, verifyUser} from "../services/authenticationService.js";
 
 export function UserVerifyPage() {
     const location = useLocation();
@@ -22,7 +22,7 @@ export function UserVerifyPage() {
         e.preventDefault();
 
         try{
-            await verifyCompany({email: email, verificationCode: code})
+            await verifyUser({email: email, verificationCode: code})
             navigate("/user-login")
         } catch (error) {
             setError("invalid verification code");
@@ -46,7 +46,7 @@ export function UserVerifyPage() {
             <main className="">
                 <Layout>
                     <div className="flex items-center w-full">
-                        <div className="flex flex-col items-center mx-auto py-12 px-6.5 mt-7.5 mb-7.5 border border-[#222A24]/40 max-w-127">
+                        <div className="flex flex-col items-center mx-auto py-12 px-6.5 mt-7.5 mb-7.5 border border-[#222A24]/40 max-w-127 rounded-2xl">
                             <div className="">
                                 <div className="flex flex-col mb-5">
                                     <h2 className="text-black text-[31px] font-konkhmer leading-8">Verify account to </h2>
