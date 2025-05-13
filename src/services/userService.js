@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
-const BACKEND_USER_API_URL = `${API_BASE_URL}/user`;
 const API_BASE_URL2 = "http://localhost:8081/user";
+const BACKEND_USER_API_URL = `${API_BASE_URL}/user`;
 const token = localStorage.getItem("token");
 
 const apiUser = axios.create({
-    baseURL: API_BASE_URL2,
+    baseURL: BACKEND_USER_API_URL,
     headers: {
         "Authorization": `Bearer ${token}`
     },
