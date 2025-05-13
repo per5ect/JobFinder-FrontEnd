@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BACKEND_USER_API_URL = "http://localhost:8080/company";
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_USER_API_URL = `${API_BASE_URL}/company`;
 const token = localStorage.getItem("token");
 
 const apiCompany = axios.create({

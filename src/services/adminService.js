@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BACKEND_USER_API_URL = "http://localhost:8080/admin";
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_USER_API_URL = `${API_BASE_URL}/admin`;
 const token = localStorage.getItem("token");
 
 const apiAdmin = axios.create({
