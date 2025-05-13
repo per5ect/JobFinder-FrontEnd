@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
-const BACKEND_API_URL = `${API_BASE_URL}/auth/`;
+const API_BASE_URL2 = "http/localhost:8081";
+
+const BACKEND_API_URL = `${API_BASE_URL2}/auth/`;
 
 const apiAuth = axios.create({
     baseURL: BACKEND_API_URL,

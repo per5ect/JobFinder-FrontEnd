@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
-const BACKEND_PUBLIC_API_URL = `${API_BASE_URL}/public`;
+const API_BASE_URL2 = "http/localhost:8081";
+
+// const BACKEND_PUBLIC_API_URL = `${API_BASE_URL}/public`;
+const BACKEND_PUBLIC_API_URL = `${API_BASE_URL2}/public`;
 
 const apiPublic = axios.create({
     baseURL: BACKEND_PUBLIC_API_URL,
