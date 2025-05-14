@@ -21,7 +21,7 @@ export function VacancyDetailsPanel({vacancyData, handleApplyToVacancy,role}){
                         <div className="flex flex-row justify-between items-center">
                             <p className="font-kosugi text-black text-[32px]">Location:</p>
                             <span className="flex flex-row items-center px-5 py-2 bg-black text-white rounded-2xl font-konkhmer gap-2">
-                                <img src="/Compass.svg" alt=""/>
+                                <img src="/icons/Compass.svg" alt=""/>
                                 {vacancyData.location}
                             </span>
                         </div>

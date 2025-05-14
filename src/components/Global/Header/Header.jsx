@@ -1,4 +1,4 @@
-import {Layout} from "../../Layout.jsx";
+import {Layout} from "../Layout.jsx";
 import {HeaderAdminElement} from "./HeaderAdminElement.jsx";
 import {getUserRole} from "../../../utils/jwtDecode.js";
 import {HeaderUserElement} from "./HeaderUserElement.jsx";

@@ -1,4 +1,4 @@
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import {useEffect, useState} from "react";
 import {getUserCvDetails, getUserFavoriteVacancies} from "../../services/userService.js";
 import {VacancyElement} from "../Global/VacancyElement.jsx";

@@ -1,4 +1,4 @@
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import {TableApplicationsElement} from "./TableApplicationsElement.jsx";
 import {useParams} from "react-router";
 

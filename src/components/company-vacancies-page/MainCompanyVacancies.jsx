@@ -1,4 +1,4 @@
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import {useEffect, useState} from "react";
 import {getCompanyVacancies} from "../../services/companyService.js";
 import {Loader} from "../Global/Loader.jsx";
@@ -41,7 +41,7 @@ export function MainCompanyVacancies(){
                             <a href="/my-account" className="text-black font-konkhmer">
                                 Company Profile
                             </a>
-                            <img src="/Company.svg" alt="" className=""/>
+                            <img src="/icons/Company.svg" alt="" className=""/>
                         </div>
                     </div>
 

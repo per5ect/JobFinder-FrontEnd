@@ -1,4 +1,4 @@
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import {getUserRole} from "../../utils/jwtDecode.js";
 import {useEffect, useState} from "react";
 import {VacancyFilterForm} from "../all-vacancies-page/VacancyFilterForm.jsx";

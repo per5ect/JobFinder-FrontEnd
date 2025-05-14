@@ -1,4 +1,4 @@
-import {Layout} from "../../Layout.jsx";
+import {Layout} from "../Layout.jsx";
 
 export function GuestCompanyHeader() {
     return (
@@ -19,9 +19,9 @@ export function GuestCompanyHeader() {
                         <a href="/company-login" className="px-6 py-2 text-white bg-blue font-kosugi rounded-xl hover:bg-blue/90">
                             Sign in / Sign up
                         </a>
-                        <img src="/Arrow.svg" alt=""/>
+                        <img src="/icons/Arrow.svg" alt=""/>
                         <a href="/my-account" className="bg-blue flex justify-center items-center w-25 h-25 transition-colors ease-in-out hover:bg-blue/90">
-                            <img src="/Me.svg" alt="" className=""/>
+                            <img src="/icons/Me.svg" alt="" className=""/>
                         </a>
                     </div>
                 </div>

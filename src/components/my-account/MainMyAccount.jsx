@@ -1,5 +1,5 @@
 import {getUserRole} from "../../utils/jwtDecode.js";
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import {logout} from "../../services/authenticationService.js";
 import {UserAccount} from "./UserAccount.jsx";
 import {CompanyAccount} from "./CompanyAcconut.jsx";

@@ -41,12 +41,12 @@ export function UserAccount({userRole}){
 
                             <div className="flex flex-row items-center gap-3 bg-black text-white font-konkhmer text-[48px] px-7 mb-3">
                                 <h1 className="">My Profile</h1>
-                                <img src="/Me.svg" alt="My profile" className=""/>
+                                <img src="/icons/Me.svg" alt="My profile" className=""/>
                             </div>
                             {userRole === "ROLE_USER" ?
                                 <div className="flex flex-row py-3 px-6.5 gap-1 bg-green rounded-2xl transition-colors ease-in-out hover:bg-green/80 ">
                                     <a href="/cv-details" className="text-black font-konkhmer">My CV details</a>
-                                    <img src="/Document.svg" alt="" className=""/>
+                                    <img src="/icons/Document.svg" alt="" className=""/>
                                 </div> : null}
 
                         </div>

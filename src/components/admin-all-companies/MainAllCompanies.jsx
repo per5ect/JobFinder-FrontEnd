@@ -1,4 +1,4 @@
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import {AdminTableElement} from "../Global/AdminTableElement.jsx";
 import {useEffect, useState} from "react";
 import {getAllCompanies} from "../../services/adminService.js";

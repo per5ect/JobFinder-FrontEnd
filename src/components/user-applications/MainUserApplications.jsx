@@ -1,4 +1,4 @@
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import {TableUesrApplicationsElement} from "./TableUesrApplicationsElement.jsx";
 
 export function MainUserApplications(){

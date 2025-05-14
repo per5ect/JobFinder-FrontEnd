@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Layout } from "../Layout.jsx";
+import { Layout } from "../Global/Layout.jsx";
 import { SearchTechnologyCompany } from "./SearchTechnologyCompany.jsx";
 import { JobOfferingsInput } from "./JobOfferingsInput.jsx";
 import { JobRequirementsInput } from "./JobRequirementsInput.jsx";

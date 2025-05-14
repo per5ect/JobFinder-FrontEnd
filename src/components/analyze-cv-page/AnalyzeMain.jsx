@@ -1,4 +1,4 @@
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import {useEffect, useState} from "react";
 import {UploadElement} from "./UploadElement.jsx";
 import {getUserCvDetails} from "../../services/userService.js";

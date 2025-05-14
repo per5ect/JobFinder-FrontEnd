@@ -86,7 +86,7 @@ export function UploadElement({ setAnalyseStep,analyseResult }) {
                             </button>
                         ) : (
                             <div className="flex flex-col items-center font-kosugi text-[14px] gap-3">
-                                <img src="/upload.svg" alt=""/>
+                                <img src="/icons/upload.svg" alt=""/>
                                 <p className="text-black">Drag your resume to start uploading</p>
                                 <p>------ OR ------</p>
                                 <span className="text-blue border border-blue px-3 py-2 rounded-xl">Browse files</span>

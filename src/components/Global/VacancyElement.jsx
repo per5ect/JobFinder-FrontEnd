@@ -24,12 +24,12 @@ export function VacancyElement({vacancyData, userRole}){
                     {vacancyData.title}
                 </a>
                 <a href="#" className="flex flex-row items-center font-konkhmer gap-2 px-5 py-2 border border-black rounded-[20px]">
-                    <img src="/Company.svg" alt=""/>
+                    <img src="/icons/Company.svg" alt=""/>
                     {vacancyData.companyName}
                 </a>
                 <div className="flex flex-row gap-5 items-center">
                     <span className="flex flex-row items-center gap-2 bg-black px-5 py-2.5 rounded-[20px] text-white font-konkhmer ">
-                        <img src="/Compass.svg" alt=""/>
+                        <img src="/icons/Compass.svg" alt=""/>
                         {vacancyData.location}
                     </span>
                     <span className="bg-blue text-white font-konkhmer  px-5 py-2.5 rounded-[20px]">

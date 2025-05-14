@@ -26,7 +26,7 @@ export function HeaderCompanyElement() {
 
             <div className="flex flex-row items-center">
                 <a href="/my-account" className="bg-blue flex justify-center items-center w-25 h-25 transition-colors ease-in-out hover:bg-blue/90">
-                    <img src="/Me.svg" alt="" className=""/>
+                    <img src="/icons/Me.svg" alt="" className=""/>
                 </a>
                 <DropdownElement/>
             </div>

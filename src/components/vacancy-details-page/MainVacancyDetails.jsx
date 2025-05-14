@@ -1,4 +1,4 @@
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import {useParams} from "react-router";
 import {useEffect, useState} from "react";
 import {getVacancy} from "../../services/publicService.js";
@@ -54,7 +54,7 @@ export function MainVacancyDetails(){
                             <div className="flex flex-row items-center gap-4">
                                 <p className="font-konkhmer text-black text-[32px]">Company:</p>
                                 <span className="flex flex-row items-center font-konkhmer rounded-2xl px-4 py-2 gap-2 border border-black">
-                                    <img src="/Company.svg" alt=""/>
+                                    <img src="/icons/Company.svg" alt=""/>
                                     {vacancyData.companyName}
                                 </span>
                             </div>

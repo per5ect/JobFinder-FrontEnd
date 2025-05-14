@@ -32,11 +32,11 @@ export function CompanyAccount() {
                 <div className="flex flex-row justify-between items-center w-full">
                     <div className="flex flex-row items-center gap-3">
                         <h1 className="text-[48px] font-konkhmer">My company profile</h1>
-                        <img src="/Company.svg" alt="My profile" className=""/>
+                        <img src="/icons/Company.svg" alt="My profile" className=""/>
                     </div>
                         <div className="flex flex-row py-3 px-6.5 gap-1 bg-green rounded-2xl transition-colors ease-in-out hover:bg-green/80 ">
                             <a href="/my-vacancies" className="text-black font-konkhmer">My vacancies</a>
-                            <img src="/Document.svg" alt="" className=""/>
+                            <img src="/icons/Document.svg" alt="" className=""/>
                         </div>
 
                 </div>

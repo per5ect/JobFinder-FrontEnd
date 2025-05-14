@@ -24,7 +24,7 @@ export function DropdownElement() {
         <div className="relative inline-block">
             <button onClick={() => setIsOpen(!isOpen)}
                     className="bg-green flex justify-center items-center w-25 h-25 transition-colors ease-in-out">
-                <img src="/Menu.svg" alt="" className="text-black"/>
+                <img src="/icons/Menu.svg" alt="" className="text-black"/>
             </button>
 
             {isOpen && (
@@ -37,7 +37,7 @@ export function DropdownElement() {
                                 <a href="#" onClick={logout} className="">
                                     Sign out
                                 </a>
-                                <img src="/LogOut.svg" className="" alt=""/>
+                                <img src="/icons/LogOut.svg" className="" alt=""/>
                             </div>
                         </li>
                     </ul>

@@ -1,4 +1,4 @@
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import {VacancyFilterForm} from "./VacancyFilterForm.jsx";
 import {useEffect, useState} from "react";
 import {getAllVacancies} from "../../services/publicService.js";

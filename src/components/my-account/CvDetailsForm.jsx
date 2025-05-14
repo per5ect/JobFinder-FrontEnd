@@ -27,7 +27,7 @@ export function CvDetailsForm({isLoading, cvLink, cvDetails}) {
                         <h3 className="text-black font-konkhmer text-[30px]">Resume:</h3>
                         <a href={cvLink} className="flex flex-row gap-2 text-[24px] px-12 py-3.5 rounded-2xl font-konkhmer bg-green transition-colors ease-in-out hover:bg-green/90">
                             My resume
-                            <img src="/Document.svg" alt=""/>
+                            <img src="/icons/Document.svg" alt=""/>
                         </a>
                     </div>
                     <div className="flex flex-row items-center justify-between pt-8 pb-8 border-b border-black/10">

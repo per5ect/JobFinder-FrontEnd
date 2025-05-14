@@ -21,9 +21,9 @@ export function HeaderGuestElement(){
                 <a href="/user-login" className="px-6 py-1.5 text-white bg-blue rounded-xl font-kosugi transition-colors ease-in-out  hover:bg-blue/90 ">
                     Sign in / Sign up
                 </a>
-                <img src="/Arrow.svg" alt=""/>
+                <img src="/icons/Arrow.svg" alt=""/>
                 <a href="/my-account" className="bg-blue flex justify-center items-center w-25 h-25 transition-colors ease-in-out hover:bg-blue/90">
-                    <img src="/Me.svg" alt="" className=""/>
+                    <img src="/icons/Me.svg" alt="" className=""/>
                 </a>
             </div>
         </div>

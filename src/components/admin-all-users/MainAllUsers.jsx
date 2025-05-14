@@ -1,4 +1,4 @@
-import {Layout} from "../Layout.jsx";
+import {Layout} from "../Global/Layout.jsx";
 import { useEffect, useState} from "react";
 import { getAllUsers} from "../../services/adminService.js";
 import {Loader} from "../Global/Loader.jsx";
