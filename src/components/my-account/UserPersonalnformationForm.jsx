@@ -1,40 +1,7 @@
-import { useState } from "react";
-import { updateUserPersonalInformation } from "../../services/userService";
+import {useUserPersonalInformation} from "./hooks/useUserPersonalInformationForm.js";
 
 export function UserPersonalInformationForm({ userPersonalData }) {
-    const [formData, setFormData] = useState({
-        name: userPersonalData.firstName || "",
-        surname: userPersonalData.lastName || ""
-    });
-    const [status, setStatus] = useState(null); // success | error | null
-    const [loading, setLoading] = useState(false);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setStatus(null);
-
-        try {
-            await updateUserPersonalInformation({
-                name: formData.name,
-                surname: formData.surname
-            });
-            setStatus("success");
-        } catch (error) {
-            console.error("Update error", error);
-            setStatus("error");
-        } finally {
-            setLoading(false);
-        }
-    };
+    const { formData, status, loading, handleChange, handleSubmit } = useUserPersonalInformation(userPersonalData);
 
     return (
         <section className="pt-10 pb-16 border-b-1 border-black/10 flex flex-col gap-3">
@@ -49,7 +16,7 @@ export function UserPersonalInformationForm({ userPersonalData }) {
                         type="text"
                         id="name"
                         name="name"
-                        value={userPersonalData.firstName}
+                        value={formData.name}
                         onChange={handleChange}
                         placeholder="Enter your name"
                         className="py-4 p-6.5 border border-[#222A24] rounded-xl input-kosugi w-[359px]
@@ -64,7 +31,7 @@ export function UserPersonalInformationForm({ userPersonalData }) {
                         type="text"
                         id="surname"
                         name="surname"
-                        value={userPersonalData.lastName}
+                        value={formData.surname}
                         onChange={handleChange}
                         placeholder="Enter your surname"
                         className="py-4 p-6.5 border border-[#222A24] rounded-xl input-kosugi w-[359px]

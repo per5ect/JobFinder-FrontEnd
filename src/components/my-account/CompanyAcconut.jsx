@@ -1,26 +1,13 @@
-import {useEffect, useState} from "react";
-import {getCompanyData} from "../../services/companyService.js";
+import {useEffect} from "react";
 import {Loader} from "../Global/Loader.jsx";
 import {CompanyInformationForm} from "./CompanyInformationForm.jsx";
 import {CompanyLoginDetailsForm} from "./CompanyLoginDetailsForm.jsx";
+import {useCompanyAccount} from "./hooks/useCompanyAccount.js";
 
 export function CompanyAccount() {
-    const [companyData,setCompanyData] = useState(null)
-    const [loading,setLoading] = useState(true)
-    const [error,setError] = useState(null)
+    const {fetchCompanyData, loading,error, companyData} = useCompanyAccount();
 
     useEffect(()=>{
-        const fetchCompanyData = async () => {
-            try{
-                const data = await getCompanyData();
-                setCompanyData(data)
-                console.log(data)
-            } catch (error) {
-                setError(error + "loading data error")
-            } finally {
-                setLoading(false)
-            }
-        }
         fetchCompanyData()
     }, [])
 

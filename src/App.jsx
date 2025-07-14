@@ -30,6 +30,7 @@ import {UserSuitableVacanciesPage} from "./pages/user/UserSuitableVacanciesPage.
 export function App(){
     return (
         <Routes>
+            {/*public routes*/}
             <Route path="/" element={<MainForUserPage />} />
             <Route path="/for-companies" element={<MainForCompanyPage/>}/>
 
@@ -46,10 +47,12 @@ export function App(){
             <Route path="/user-verify" element={<UserVerifyPage/>}/>
             <Route path="/company-verify" element={<CompanyVerifyPage/>}/>
 
+            {/*my account route*/}
             <Route element={<MyAccountProtectedRoutes/>}>
                 <Route path="/my-account" element={<MyAccountPage/>}/>
             </Route>
 
+            {/*user routes*/}
             <Route element={<UserProtectedRoutes/>}>
                 <Route path="/analyze" element={<AnalyzePage/>}/>
                 <Route path="/suitable-vacancies" element={<UserSuitableVacanciesPage/>}/>
@@ -58,12 +61,14 @@ export function App(){
                 <Route path="/my-applications" element={<UserApplicationsPage/>}/>
             </Route>
 
+            {/*company routes*/}
             <Route element={<CompanyProtectedRoutes/>}>
                 <Route path="/create-work" element={<CompanyCreateJobPage/>}/>
                 <Route path="/my-vacancies" element={<CompanyVacanciesPage/>}/>
                 <Route path="/vacancy-applications/:vacancyName/:vacancyId" element={<CompanyJobApplicationsPage/>}/>
             </Route>
 
+            {/*admin routes*/}
             <Route element={<AdminProtectedRoutes/>}>
                 <Route path="/main-admin-page" element={<AdminHomePage/>}/>
                 <Route path="/technologies" element={<CreateTechnologyPage/>}/>

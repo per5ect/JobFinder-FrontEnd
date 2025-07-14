@@ -51,6 +51,8 @@ Můžete je odstranit nebo znovu otevřít.
 9. Stav odpovědí
    V části Moje odpovědi najdete přehled všech pozic, na které jste odpověděli, a jejich stav (přijato/odmítnuto/čeká).
 
+
+
 🏢 Firma
 1. Registrace a přihlášení
    Firma se registruje na stránce /company/signup.

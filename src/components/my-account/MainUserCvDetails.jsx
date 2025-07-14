@@ -1,26 +1,12 @@
 import {Layout} from "../Global/Layout.jsx";
 import {CvDetailsForm} from "./CvDetailsForm.jsx";
-import {useEffect, useState} from "react";
-import {getUserCV, getUserCvDetails} from "../../services/userService.js";
+import {useEffect} from "react";
+import {useCvDetails} from "./hooks/useCvDetails.js";
 
 export function MainUserCvDetails() {
-    const [cvDetails, setCvDetails] = useState([]);
-    const [cvLink, setCvLink] = useState("");
-    const [isLoading, setIsLoading] = useState(true);
+    const { cvDetails, cvLink, isLoading, fetchCvDetails } = useCvDetails()
 
     useEffect(() => {
-        const fetchCvDetails = async () => {
-            try {
-                const data = await getUserCvDetails();
-                const cvLink = await getUserCV();
-                setCvDetails(data);
-                setCvLink(cvLink);
-            } catch (error) {
-                console.log(error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
         fetchCvDetails();
     }, []);
     return (

@@ -6,16 +6,14 @@ import {
     getUserFavoriteVacancies
 } from "../services/userService";
 
-// Загружаем избранные вакансии при инициализации
 export const fetchFavorites = createAsyncThunk(
     "favorites/fetchFavorites",
     async () => {
         const response = await getUserFavoriteVacancies();
-        return response; // response должен быть массивом вакансий
+        return response;
     }
 );
 
-// Добавить или удалить вакансию
 export const toggleFavorite = createAsyncThunk(
     "favorites/toggleFavorite",
     async ({ vacancy, isCurrentlyFavorite }) => {

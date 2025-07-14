@@ -33,7 +33,7 @@ export function MainAllUsers(){
     return(
         <main>
             <Layout>
-                <div className="mt-13 flex flex-col items-start w-full">
+                <div className="mt-13 mb-13 flex flex-col items-start w-full">
                     <h1 className=" bg-black text-white font-konkhmer text-[48px] px-7">
                         All Users
                     </h1>
